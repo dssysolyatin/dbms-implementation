@@ -21,7 +21,8 @@ The util uses gnuplot and disk_write_performance utils
 
 Example of plots:
 
-
+![Write plot](https://github.com/bestreyer/dbms-implementation/blob/master/utils/disk_write_performance/write_plot.png)
+![Read plot](https://github.com/bestreyer/dbms-implementation/blob/master/utils/disk_write_performance/read_plot.png)
 
 
 The graphs show that it is best to use block size >= 4096
