@@ -41,7 +41,7 @@ public:
     explicit Page(void);
     explicit Page(char *);
 
-    void insertRecord(char* recordPointer, uint16_t recordLength);
+    void insert(char* recordPointer, uint16_t recordLength);
 
     char* getBuffer() const;
 

@@ -24,6 +24,7 @@ public:
 
     void write(const Page& page, const PagePointer& pagePointer);
 
+    size_t sizeOfFile();
 };
 
 #endif //DBMS_STUDY_IMPLEMENTATION_PAGEFILEMANAGER_H

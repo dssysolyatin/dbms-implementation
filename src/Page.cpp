@@ -12,7 +12,7 @@ Page::Page(char* buffer)
     this->pageHeader = (PageHeader*)(buffer+(PageSize-sizeof(PageHeader)));
 }
 
-void Page::insertRecord(char* recordPointer, uint16_t recordLength)
+void Page::insert(char* recordPointer, uint16_t recordLength)
 {
     if (pageHeader->fsUpper-pageHeader->fsLower<recordLength) {
         throw std::bad_alloc();
