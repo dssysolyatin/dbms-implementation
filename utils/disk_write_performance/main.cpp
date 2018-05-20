@@ -12,7 +12,7 @@ private:
     size_t writeSize;
 public:
 
-    DiskPerformanceChecker(string path, size_t blockSize, size_t writeSize): blockSize(blockSize), writeSize(writeSize) {
+    DiskPerformanceChecker(const string& path, size_t blockSize, size_t writeSize): blockSize(blockSize), writeSize(writeSize) {
         fs.rdbuf()->pubsetbuf(0, 0);
         fs.open(path, fstream::in | fstream::out | fstream::trunc);
     }
@@ -21,7 +21,7 @@ public:
         fs.seekg(0, ios::beg);
 
         auto start = chrono::high_resolution_clock::now();
-        char * buffer = new char[this->blockSize];
+        auto buffer = new char[this->blockSize];
         size_t cycle = (this->writeSize + (this->blockSize - 1)) / this->blockSize;
 
         for (size_t i = 0; i < cycle; i ++) {
@@ -35,7 +35,7 @@ public:
         fs.seekg(0, ios::beg);
 
         auto start = chrono::high_resolution_clock::now();
-        char * buffer = new char[this->blockSize];
+        auto buffer = new char[this->blockSize];
         size_t cycle = (this->writeSize + (this->blockSize - 1)) / this->blockSize;
 
         for (size_t i = 0; i < cycle; i ++) {
