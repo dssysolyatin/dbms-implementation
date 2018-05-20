@@ -1,14 +1,17 @@
 #include "RecordWritter.h"
+#include <iostream>
 
 RecordWritter::RecordWritter(std::shared_ptr<PageFileManager> pageFileManagerPointer)
         :pageFileManagerPointer(pageFileManagerPointer)
 {
-    this->lastPagePointer = (pageFileManagerPointer->sizeOfFile() / Page::PageSize) * Page::PageSize;
 
-    if (0 == pageFileManagerPointer->sizeOfFile()%Page::PageSize) {
+    bool isEmpty = (0 == pageFileManagerPointer->sizeOfFile());
+
+    if (true == isEmpty) {
+        this->lastPagePointer = 0;
         this->lastPage = std::make_shared<Page>();
-    }
-    else {
+    } else {
+        this->lastPagePointer = ((pageFileManagerPointer->sizeOfFile() - 1) / Page::PageSize)*Page::PageSize;
         this->lastPage = std::shared_ptr<Page>(this->pageFileManagerPointer->read(this->lastPagePointer));
     }
 }

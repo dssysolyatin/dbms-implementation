@@ -34,7 +34,6 @@ private:
     PageHeader* pageHeader;
 public:
     const static uint16_t PageSize = 8192;
-    constexpr static uint16_t MaxFreeSpace = PageSize-sizeof(PageHeader)-sizeof(RecordPointer);
 public:
     Page(const Page&) = delete; // non-copyable
 

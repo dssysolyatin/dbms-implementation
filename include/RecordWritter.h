@@ -6,6 +6,7 @@
 #define DBMS_STUDY_IMPLEMENTATION_RECORDWRITTER_H
 
 #include <memory>
+
 #include "Page.h"
 #include "PageFileManager.h"
 
